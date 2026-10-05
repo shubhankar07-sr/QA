@@ -27,6 +27,9 @@ The communication uses HTTPS over TCP port 443.
 A verbose HTTPS request was performed using:
 <img width="1920" height="1080" alt="10_Curl_Output" src="https://github.com/user-attachments/assets/ec7155c4-3c77-47dd-ac7a-6d4662192f2e" />
 
+<img width="1920" height="1080" alt="Screenshot 2026-10-05 183217" src="https://github.com/user-attachments/assets/bd431014-0bdd-4a87-82d4-a648eb8adffb" />
+
+
 
 ```text
 curl.exe -v https://crud.qa.instasafe.io/

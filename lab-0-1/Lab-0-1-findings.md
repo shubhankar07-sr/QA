@@ -26,26 +26,9 @@ The communication uses HTTPS over TCP port 443.
 
 A verbose HTTPS request was performed using:
 
+
+<img width="1920" height="1080" alt="10_Curl_Output" src="https://github.com/user-attachments/assets/47a11aed-749f-46a8-8e21-552831cc671e" />
+
+
 ```text
 curl.exe -v https://crud.qa.instasafe.io/
-
-
-## Evidence Screenshots
-
-### TLS Client Hello
-![TLS Client Hello](screenshots/01_TLS_Client_Hello.png)
-
-### TLS Server Hello
-![TLS Server Hello](screenshots/02_TLS_Server_Hello.png)
-
-### HTTPS TLS Communication
-![HTTPS TLS Communication](screenshots/03_HTTPS_TLS_Communication.png)
-
-### DNS Query and Response
-![DNS Query Response](screenshots/04_DNS_Query_Response.png)
-
-### TCP Three-Way Handshake
-![TCP Three-Way Handshake](screenshots/05_TCP_Three_Way_Handshake.png)
-
-### Curl Output
-![Curl Output](screenshots/10_Curl_Output.png)

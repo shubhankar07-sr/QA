@@ -28,3 +28,24 @@ A verbose HTTPS request was performed using:
 
 ```text
 curl.exe -v https://crud.qa.instasafe.io/
+
+
+## Evidence Screenshots
+
+### TLS Client Hello
+![TLS Client Hello](screenshots/01_TLS_Client_Hello.png)
+
+### TLS Server Hello
+![TLS Server Hello](screenshots/02_TLS_Server_Hello.png)
+
+### HTTPS TLS Communication
+![HTTPS TLS Communication](screenshots/03_HTTPS_TLS_Communication.png)
+
+### DNS Query and Response
+![DNS Query Response](screenshots/04_DNS_Query_Response.png)
+
+### TCP Three-Way Handshake
+![TCP Three-Way Handshake](screenshots/05_TCP_Three_Way_Handshake.png)
+
+### Curl Output
+![Curl Output](screenshots/10_Curl_Output.png)

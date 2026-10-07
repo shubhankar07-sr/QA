@@ -1,0 +1,40 @@
+{
+	"id": "13c33999-4f35-4a10-ba97-f0382127e45b",
+	"name": "Instasafe Staging",
+	"values": [
+		{
+			"key": "base_url",
+			"value": "",
+			"type": "default",
+			"enabled": true
+		},
+		{
+			"key": "api_key",
+			"value": "",
+			"type": "default",
+			"enabled": true
+		},
+		{
+			"key": "auth_token",
+			"value": "",
+			"type": "default",
+			"enabled": true
+		},
+		{
+			"key": "auth_session_id",
+			"value": "",
+			"type": "default",
+			"enabled": true
+		},
+		{
+			"key": "challenge_token",
+			"value": "",
+			"type": "default",
+			"enabled": true
+		}
+	],
+	"color": null,
+	"_postman_variable_scope": "environment",
+	"_postman_exported_at": "2026-10-07T06:39:39.429Z",
+	"_postman_exported_using": "Postman/12.31.3"
+}

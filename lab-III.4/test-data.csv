@@ -1,0 +1,4 @@
+hostname,os,expected_status
+QA-Test-PC,Windows,200
+,Windows,400
+QA-Test-PC,InvalidOS,400

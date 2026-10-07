@@ -1,0 +1,595 @@
+{
+  "info": {
+    "_postman_id": "de07b218-115e-441a-812b-6edffd05e9b6",
+    "name": "Lab III.4 - API Testing",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "_exporter_id": "58748266",
+    "_collection_link": "https://go.postman.co/collection/58748266-de07b218-115e-441a-812b-6edffd05e9b6?source=collection_link"
+  },
+  "item": [
+    {
+      "name": "https://ztna.instasafe.io:7980/api/challenge",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "type": "text/javascript",
+            "exec": [
+              "const json = pm.response.json();\r\n\r\npm.test(\"Challenge request successful\", function () {\r\n    pm.expect(json.success).to.eql(true);\r\n});\r\n\r\npm.environment.set(\"challenge_token\", json.data);"
+            ]
+          }
+        }
+      ],
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "sec-ch-ua-platform",
+            "value": "\"Windows\""
+          },
+          {
+            "key": "Referer",
+            "value": "https://mars.qa.instasafe.io/"
+          },
+          {
+            "key": "User-Agent",
+            "value": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/154.0.0.0 Safari/537.36"
+          },
+          {
+            "key": "sec-ch-ua",
+            "value": "\"Chromium\";v=\"154\", \"Google Chrome\";v=\"154\", \"Not A(Brand\";v=\"99\""
+          },
+          {
+            "key": "Content-Type",
+            "value": "text/plain;charset=UTF-8"
+          },
+          {
+            "key": "sec-ch-ua-mobile",
+            "value": "?0"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\"username\":\"shubhankar\",\"baseUrl\":\"https://mars.qa.instasafe.io\"}",
+          "options": {
+            "raw": {
+              "language": "text"
+            }
+          }
+        },
+        "url": {
+          "raw": "https://ztna.instasafe.io:7980/api/challenge",
+          "protocol": "https",
+          "host": [
+            "ztna",
+            "instasafe",
+            "io"
+          ],
+          "port": "7980",
+          "path": [
+            "api",
+            "challenge"
+          ]
+        },
+        "description": "Generated from cURL: curl --url 'https://ztna.instasafe.io:7980/api/challenge' \\\r\n  -H 'sec-ch-ua-platform: \"Windows\"' \\\r\n  -H 'Referer: https://mars.qa.instasafe.io/' \\\r\n  -H 'User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/154.0.0.0 Safari/537.36' \\\r\n  -H 'sec-ch-ua: \"Chromium\";v=\"154\", \"Google Chrome\";v=\"154\", \"Not A(Brand\";v=\"99\"' \\\r\n  -H 'Content-Type: text/plain;charset=UTF-8' \\\r\n  -H 'sec-ch-ua-mobile: ?0' \\\r\n  --data-raw '{\"username\":\"shubhankar\",\"baseUrl\":\"https://mars.qa.instasafe.io\"}'"
+      },
+      "response": []
+    },
+    {
+      "name": "https://mars.qa.instasafe.io/console/g2/auth/login",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "type": "text/javascript",
+            "exec": [
+              "const response = pm.response.json();\r\n\r\npm.test(\"Login successful\", function () {\r\n    pm.expect(response.success).to.eql(true);\r\n});\r\n\r\nif (response.success && response.data?.metadata?.sessionId) {\r\n    pm.environment.set(\r\n        \"auth_session_id\",\r\n        response.data.metadata.sessionId\r\n    );\r\n}"
+            ]
+          }
+        }
+      ],
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "accept",
+            "value": "application/json"
+          },
+          {
+            "key": "accept-language",
+            "value": "en-GB,en-US;q=0.9,en;q=0.8,hi;q=0.7"
+          },
+          {
+            "key": "content-type",
+            "value": "application/json"
+          },
+          {
+            "key": "origin",
+            "value": "https://mars.qa.instasafe.io"
+          },
+          {
+            "key": "priority",
+            "value": "u=1, i"
+          },
+          {
+            "key": "referer",
+            "value": "https://mars.qa.instasafe.io/"
+          },
+          {
+            "key": "sec-ch-ua",
+            "value": "\"Chromium\";v=\"154\", \"Google Chrome\";v=\"154\", \"Not A(Brand\";v=\"99\""
+          },
+          {
+            "key": "sec-ch-ua-mobile",
+            "value": "?0"
+          },
+          {
+            "key": "sec-ch-ua-platform",
+            "value": "\"Windows\""
+          },
+          {
+            "key": "sec-fetch-dest",
+            "value": "empty"
+          },
+          {
+            "key": "sec-fetch-mode",
+            "value": "cors"
+          },
+          {
+            "key": "sec-fetch-site",
+            "value": "same-origin"
+          },
+          {
+            "key": "user-agent",
+            "value": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/154.0.0.0 Safari/537.36"
+          },
+          {
+            "key": "x-client-ip",
+            "value": "10.0.0.92"
+          },
+          {
+            "key": "x-devicename",
+            "value": "Dell"
+          },
+          {
+            "key": "x-latitude",
+            "value": "20.348115879189272"
+          },
+          {
+            "key": "x-longitude",
+            "value": "85.80783576374083"
+          },
+          {
+            "key": "x-request-id",
+            "value": "9uxrkzbapz4"
+          },
+          {
+            "key": "x-sno",
+            "value": "3SYV4W3"
+          },
+          {
+            "key": "x-useragent",
+            "value": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/154.0.0.0 Safari/537.36 isWindows11"
+          },
+          {
+            "key": "Cookie",
+            "value": "mp_61cc84c53f48010151018568e3077631_mixpanel=%7B%22distinct_id%22%3A%20%221a0b28fbaf7367-08d5421678c9288-26071851-144000-1a0b28fbaf891a%22%2C%22%24device_id%22%3A%20%221a0b28fbaf7367-08d5421678c9288-26071851-144000-1a0b28fbaf891a%22%2C%22%24initial_referrer%22%3A%20%22https%3A%2F%2Fmars.qa.instasafe.io%2Fuser%2Fapplication-access%22%2C%22%24initial_referring_domain%22%3A%20%22mars.qa.instasafe.io%22%7D"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\"op\":\"ulookup\",\"data\":{\"partnerId\":\"1\",\"tenantId\":\"642c1816fc045c1de5a9976e\",\"username\":\"shubhankar\",\"gswjdhd\":\"\",\"tt\":\"\",\"challenge\": \"{{challenge_token}}\"}}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "https://mars.qa.instasafe.io/console/g2/auth/login",
+          "protocol": "https",
+          "host": [
+            "mars",
+            "qa",
+            "instasafe",
+            "io"
+          ],
+          "path": [
+            "console",
+            "g2",
+            "auth",
+            "login"
+          ]
+        },
+        "description": "Generated from cURL: curl --url 'https://mars.qa.instasafe.io/console/g2/auth/login' \\\r\n  -H 'accept: application/json' \\\r\n  -H 'accept-language: en-GB,en-US;q=0.9,en;q=0.8,hi;q=0.7' \\\r\n  -H 'content-type: application/json' \\\r\n  -b 'mp_61cc84c53f48010151018568e3077631_mixpanel=%7B%22distinct_id%22%3A%20%221a0b28fbaf7367-08d5421678c9288-26071851-144000-1a0b28fbaf891a%22%2C%22%24device_id%22%3A%20%221a0b28fbaf7367-08d5421678c9288-26071851-144000-1a0b28fbaf891a%22%2C%22%24initial_referrer%22%3A%20%22https%3A%2F%2Fmars.qa.instasafe.io%2Fuser%2Fapplication-access%22%2C%22%24initial_referring_domain%22%3A%20%22mars.qa.instasafe.io%22%7D' \\\r\n  -H 'origin: https://mars.qa.instasafe.io' \\\r\n  -H 'priority: u=1, i' \\\r\n  -H 'referer: https://mars.qa.instasafe.io/' \\\r\n  -H 'sec-ch-ua: \"Chromium\";v=\"154\", \"Google Chrome\";v=\"154\", \"Not A(Brand\";v=\"99\"' \\\r\n  -H 'sec-ch-ua-mobile: ?0' \\\r\n  -H 'sec-ch-ua-platform: \"Windows\"' \\\r\n  -H 'sec-fetch-dest: empty' \\\r\n  -H 'sec-fetch-mode: cors' \\\r\n  -H 'sec-fetch-site: same-origin' \\\r\n  -H 'user-agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/154.0.0.0 Safari/537.36' \\\r\n  -H 'x-client-ip: 10.0.0.92' \\\r\n  -H 'x-devicename: Dell' \\\r\n  -H 'x-latitude: 20.348115879189272' \\\r\n  -H 'x-longitude: 85.80783576374083' \\\r\n  -H 'x-request-id: 9uxrkzbapz4' \\\r\n  -H 'x-sno: 3SYV4W3' \\\r\n  -H 'x-useragent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/154.0.0.0 Safari/537.36 isWindows11' \\\r\n  --data-raw '{\"op\":\"ulookup\",\"data\":{\"partnerId\":\"1\",\"tenantId\":\"642c1816fc045c1de5a9976e\",\"username\":\"shubhankar\",\"gswjdhd\":\"\",\"tt\":\"\",\"challenge\":\"bnsuE98w62AA7BIE3z7OUKo5/ctQ2Wx7BHY3beDJb8IHgmWiPKQvogK4Nf2JQMOYhO75g0cumCiQ5ylU4tiZ6hwl4DOYP1jBg2Lv48sJim6kOdAQOipE+u8u9H19CUetYT57VeqHlHV989crvyczMLOOSP11xO89nt+c/pYcZfYxfUKy01QNfPOu5TZhka01Js4+5+k4t0AwTgdeYpAGPhHYkPoKYJWwLH11KF+Vmy3BU6PfVjgZ2z6uvwCZizCXm413pcudmOX2+D5BR/YQJhKjqTgqiTBlt6eF9V31NhrqlZ9HJrJqR5lnbWxcHChnHTDACwtyxGHIqu1NKKziEohKPRewGTGnn4ru88IHkZqyHHLlhB4YhkJssiBH71t2Kon9ywbnXGI1EJ/v9KRL63OgzHg4ryRLX+qM+JI5yRe1cVjNl6eHL/r3DvgzKFi1M5QD59bfqufTnGknigcniN2YkNlwu8k/V7pV9Aym6b62d2egyRKLBSjTKuQFtsGLzjBEoc9H2G/f5NxITvvUj5g+FJ8+JdkfVQT6BklqSlaAhpoFdjE6cpvod5Ytzzvsd++pBwNlliyQRNCWF8ZONik7fU9WfsgeCqc3aho9ZzGrVMhGPheWmv36g8z4zBCruQUWZItAUkMe4NuQN2uLuOHnnADQtfszuAUQ78wldJqApFdWSAJNU7QLrTBDxCCkdADBoavk80ZN4W92eWono0Zb5nExMR3+T3AKkLYDag==\"}}'"
+      },
+      "response": []
+    },
+    {
+      "name": "02 - Base URL Check",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "type": "text/javascript",
+            "exec": [
+              "pm.test(\"Status code is 200\", function () {\r\n    pm.response.to.have.status(200);\r\n});\r\n\r\npm.test(\"Response time is less than 2000ms\", function () {\r\n    pm.expect(pm.response.responseTime).to.be.below(2000);\r\n});\r\n\r\npm.test(\"Response is JSON\", function () {\r\n    pm.response.to.be.json;\r\n});\r\n\r\npm.test(\"Success is true\", function () {\r\n    const json = pm.response.json();\r\n    pm.expect(json.success).to.eql(true);\r\n});\r\n\r\npm.test(\"Base URL exists\", function () {\r\n    const json = pm.response.json();\r\n    pm.expect(json.data).to.have.property(\"baseUrl\");\r\n});"
+            ]
+          }
+        }
+      ],
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "{{base_url}}/console/baseUrl",
+          "host": [
+            "{{base_url}}"
+          ],
+          "path": [
+            "console",
+            "baseUrl"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "03 - Get Devices",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "type": "text/javascript",
+            "exec": [
+              "pm.test(\"Status code is 200\", function () {\r\n    pm.response.to.have.status(200);\r\n});\r\n\r\npm.test(\"Response time is less than 2000ms\", function () {\r\n    pm.expect(pm.response.responseTime).to.be.below(2000);\r\n});\r\n\r\npm.test(\"Response is JSON\", function () {\r\n    pm.response.to.be.json;\r\n});\r\n\r\npm.test(\"Success is true\", function () {\r\n    const json = pm.response.json();\r\n    pm.expect(json.success).to.eql(true);\r\n});\r\n\r\npm.test(\"Device data exists\", function () {\r\n    const json = pm.response.json();\r\n    pm.expect(json).to.have.property(\"data\");\r\n});"
+            ]
+          }
+        }
+      ],
+      "request": {
+        "auth": {
+          "type": "bearer",
+          "bearer": [
+            {
+              "key": "token",
+              "value": "{{auth_token}}",
+              "type": "string"
+            }
+          ]
+        },
+        "method": "GET",
+        "header": [
+          {
+            "key": "x-token",
+            "value": "{{auth_token}}"
+          },
+          {
+            "key": "x-useragent",
+            "value": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) isWindows11"
+          },
+          {
+            "key": "",
+            "value": "",
+            "disabled": true
+          }
+        ],
+        "url": {
+          "raw": "{{base_url}}/console/devices/page/0/size/10/sortBy/displayName/asc/true",
+          "host": [
+            "{{base_url}}"
+          ],
+          "path": [
+            "console",
+            "devices",
+            "page",
+            "0",
+            "size",
+            "10",
+            "sortBy",
+            "displayName",
+            "asc",
+            "true"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "04 - Get User Details",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "type": "text/javascript",
+            "exec": [
+              "pm.test(\"Status code is 200\", function () {\r\n    pm.response.to.have.status(200);\r\n});\r\n\r\npm.test(\"Response time is less than 2000ms\", function () {\r\n    pm.expect(pm.response.responseTime).to.be.below(2000);\r\n});\r\n\r\npm.test(\"Response is JSON\", function () {\r\n    pm.response.to.be.json;\r\n});\r\n\r\npm.test(\"Success is true\", function () {\r\n    const json = pm.response.json();\r\n    pm.expect(json.success).to.eql(true);\r\n});\r\n\r\npm.test(\"User data exists\", function () {\r\n    const json = pm.response.json();\r\n    pm.expect(json.data).to.exist;\r\n});"
+            ]
+          }
+        }
+      ],
+      "request": {
+        "auth": {
+          "type": "bearer",
+          "bearer": [
+            {
+              "key": "token",
+              "value": "{{auth_token}}",
+              "type": "string"
+            }
+          ]
+        },
+        "method": "GET",
+        "header": [
+          {
+            "key": "x-token",
+            "value": "{{auth_token}}"
+          }
+        ],
+        "url": {
+          "raw": "{{base_url}}/console/users/6aaa30d2b3526a2e14d350d5",
+          "host": [
+            "{{base_url}}"
+          ],
+          "path": [
+            "console",
+            "users",
+            "6aaa30d2b3526a2e14d350d5"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "05 - TOTP Status",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "type": "text/javascript",
+            "exec": [
+              "pm.test(\"Status code is 403\", () => {\r\n    pm.response.to.have.status(403);\r\n});\r\n\r\npm.test(\"Response time < 2000ms\", () => {\r\n    pm.expect(pm.response.responseTime).to.be.below(2000);\r\n});\r\n\r\npm.test(\"Response is JSON\", () => {\r\n    pm.response.to.be.json;\r\n});\r\n\r\npm.test(\"Request is rejected\", () => {\r\n    pm.expect(pm.response.json().success).to.eql(false);\r\n});"
+            ]
+          }
+        }
+      ],
+      "request": {
+        "auth": {
+          "type": "bearer",
+          "bearer": [
+            {
+              "key": "token",
+              "value": "{{auth_token}}",
+              "type": "string"
+            }
+          ]
+        },
+        "method": "GET",
+        "header": [
+          {
+            "key": "x-token",
+            "value": "{{auth_token}}"
+          }
+        ],
+        "url": {
+          "raw": "{{base_url}}/console/auth/users/6aaa30d2b3526a2e14d350d5/totp/qr/status?x-token={{auth_token}}",
+          "host": [
+            "{{base_url}}"
+          ],
+          "path": [
+            "console",
+            "auth",
+            "users",
+            "6aaa30d2b3526a2e14d350d5",
+            "totp",
+            "qr",
+            "status"
+          ],
+          "query": [
+            {
+              "key": "x-token",
+              "value": "{{auth_token}}"
+            }
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "06 - Deployment Properties",
+      "request": {
+        "auth": {
+          "type": "bearer",
+          "bearer": [
+            {
+              "key": "token",
+              "value": "{{auth_token}}",
+              "type": "string"
+            }
+          ]
+        },
+        "method": "GET",
+        "header": [
+          {
+            "key": "x-token",
+            "value": "{{auth_token}}"
+          }
+        ],
+        "url": {
+          "raw": "{{base_url}}/console/deployment/properties",
+          "host": [
+            "{{base_url}}"
+          ],
+          "path": [
+            "console",
+            "deployment",
+            "properties"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "07 - Base URL",
+      "request": {
+        "auth": {
+          "type": "bearer",
+          "bearer": [
+            {
+              "key": "token",
+              "value": "{{auth_token}}",
+              "type": "string"
+            }
+          ]
+        },
+        "method": "GET",
+        "header": [
+          {
+            "key": "x-token",
+            "value": "{{auth_token}}"
+          }
+        ],
+        "url": {
+          "raw": "{{base_url}}/console/baseUrl",
+          "host": [
+            "{{base_url}}"
+          ],
+          "path": [
+            "console",
+            "baseUrl"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "08 - Validate Token",
+      "request": {
+        "auth": {
+          "type": "bearer",
+          "bearer": [
+            {
+              "key": "token",
+              "value": "{{auth_token}}",
+              "type": "string"
+            }
+          ]
+        },
+        "method": "GET",
+        "header": [
+          {
+            "key": "x-token",
+            "value": "{{auth_token}}"
+          }
+        ],
+        "url": {
+          "raw": "{{base_url}}/console/g2/auth/validate/token",
+          "host": [
+            "{{base_url}}"
+          ],
+          "path": [
+            "console",
+            "g2",
+            "auth",
+            "validate",
+            "token"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "09 - Challenge",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "text/plain;charset=UTF-8"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n  \"username\": \"shubhankar\",\r\n  \"baseUrl\": \"https://mars.qa.instasafe.io\"\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "https://ztna.instasafe.io:7980/api/challenge",
+          "protocol": "https",
+          "host": [
+            "ztna",
+            "instasafe",
+            "io"
+          ],
+          "port": "7980",
+          "path": [
+            "api",
+            "challenge"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "10 - Logout",
+      "request": {
+        "auth": {
+          "type": "bearer",
+          "bearer": [
+            {
+              "key": "token",
+              "value": "{{auth_token}}",
+              "type": "string"
+            }
+          ]
+        },
+        "method": "POST",
+        "header": [
+          {
+            "key": "x-token",
+            "value": "{{auth_token}}"
+          },
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "url": {
+          "raw": "{{base_url}}/console/g2/auth/logout",
+          "host": [
+            "{{base_url}}"
+          ],
+          "path": [
+            "console",
+            "g2",
+            "auth",
+            "logout"
+          ]
+        }
+      },
+      "response": []
+    }
+  ],
+  "event": [
+    {
+      "listen": "prerequest",
+      "script": {
+        "exec": [
+          "const sessionId = pm.environment.get(\"auth_session_id\");\r",
+          "\r",
+          "if (sessionId) {\r",
+          "    pm.request.headers.upsert({\r",
+          "        key: \"x-session-id\",\r",
+          "        value: sessionId\r",
+          "    });\r",
+          "}"
+        ],
+        "type": "text/javascript"
+      }
+    }
+  ]
+}
